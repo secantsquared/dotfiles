@@ -12,4 +12,5 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$PYENV_ROOT/shims:$PATH
+export PATH=$PATH:/usr/local/opt/fzf/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1

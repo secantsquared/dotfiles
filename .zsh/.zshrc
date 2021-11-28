@@ -1,31 +1,7 @@
-if [[ ! -f $ZDOTDIR/.zinit/zinit.zsh ]]; then
-    git clone https://github.com/zdharma-continuum/zinit.git $ZDOTDIR/.zinit
-fi
+[ -d $ZDOTDIR/.zplugins/zsh-defer ] && source $ZDOTDIR/.zplugins/zsh-defer/zsh-defer.plugin.zsh
 
-source "${ZDOTDIR}/.zinit/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-### Plugins
-zinit wait'!0' lucid light-mode for \
-  as"command" from"gh-r" \
-    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-    atpull"%atclone" src"init.zsh" atload'starship_precmd' \
-      starship/starship \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-     zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  atload"bindkey '^[[A' history-substring-search-up; bindkey '^[[B' history-substring-search-down" \
-      zsh-users/zsh-history-substring-search \
-  blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions \
-  from'gh-r' as'program' \
-      junegunn/fzf \
-  Aloxaf/fzf-tab
-
-
-
+zsh-defer source "/usr/local/opt/fzf/shell/completion.zsh"
+zsh-defer source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # zstyle
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -84,12 +60,12 @@ alias brewup='brew update; brew upgrade; brew cleanup -s; brew doctor'
 bindkey -v
 export KEYTIMEOUT=1
 
-
 # adjust fpath
 fpath+=($ZDOTDIR/.zfuncs $fpath)
 
 # autoload zfuncs
-for f in $ZDOTDIR/.zfuncs/*; do autoload -Uz $f; done; unset f;
+for f in $ZDOTDIR/.zfuncs/*; do autoload -Uz $f; done
+unset f
 
 # call zfuncs that need to be called
 cursor_mode
