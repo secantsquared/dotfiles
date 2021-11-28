@@ -1,5 +1,8 @@
 [ -d $ZDOTDIR/.zplugins/zsh-defer ] && source $ZDOTDIR/.zplugins/zsh-defer/zsh-defer.plugin.zsh
 
+autoload -Uz compinit
+zsh-defer compinit
+
 zsh-defer source "/usr/local/opt/fzf/shell/completion.zsh"
 zsh-defer source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
@@ -59,6 +62,12 @@ alias brewup='brew update; brew upgrade; brew cleanup -s; brew doctor'
 # set vimode
 bindkey -v
 export KEYTIMEOUT=1
+
+# load plugins
+plugins=(fzf-tab zsh-autosuggestions zsh-history-substring-search fast-syntax-highlighting)
+
+for p in "${plugins[@]}"; do zsh-defer source $ZDOTDIR/.zplugins/$p/${p}.plugin.zsh; done
+unset p
 
 # adjust fpath
 fpath+=($ZDOTDIR/.zfuncs $fpath)
