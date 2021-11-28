@@ -16,6 +16,4 @@
 [submodule ".zsh/.zplugins/fzf-tab"]
 	path = .zsh/.zplugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab
-[submodule ".zsh/.zthemes/powerlevel10k"]
-	path = .zsh/.zthemes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k
+
