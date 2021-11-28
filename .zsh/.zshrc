@@ -79,3 +79,5 @@ unset f
 # call zfuncs that need to be called
 cursor_mode
 lazy_load pyenv_init pyenv python python3 pip pip3
+
+eval "$(starship init zsh)"
