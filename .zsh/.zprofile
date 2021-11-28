@@ -1,0 +1,15 @@
+export CLICOLOR=1
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_COLLATE=C
+export PAGER=most
+export GPG_TTY=$TTY
+export PATH=/Users/ryanboris/bin/zoomcubed:$PATH
+export PATH=/Users/ryanboris/bin:$PATH
+export VOLTA_HOME=$HOME/.volta
+export PATH=$VOLTA_HOME/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+export PATH=$PYENV_ROOT/shims:$PATH
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1

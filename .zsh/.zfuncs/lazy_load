@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+if [ $# -lt 2 ]; then
+  echo "Usage: lazy_load <initialization_function> <cmd> [ <cmd2> [..] ]"
+  return
+fi
+
+local init_func=$1
+shift
+local cmd_list=("$@")
+
+for cmd in "${cmd_list[@]}"; do
+  eval "function $cmd() {
+            echo \"Lazy loading $cmd...\"
+            # destroy all stub functions related to init_func
+            unset -f ${cmd_list[@]}
+            # run init_func
+            $init_func
+            # run the command this stub was wrapping
+            $cmd \$@
+        }"
+done
