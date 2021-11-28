@@ -11,3 +11,6 @@ zcompare $ZDOTDIR/.zlogin
 zcompare $ZDOTDIR/.zfuncs/cursor_mode
 zcompare $ZDOTDIR/.zfuncs/lazy_load
 zcompare $ZDOTDIR/.zfuncs/pyenv_init
+
+for zfile in $ZDOTDIR/.zplugins/*/*.{plugin.zsh,zsh}; do zcompare $zfile; done
+unset zfile
